@@ -828,21 +828,23 @@
     }
 
     /* --- PREMIUM UI UPGRADES --- */
-    
+
     /* Background gradients & patterns */
     body {
       background-image: radial-gradient(circle at 15% 50%, rgba(85, 25, 139, 0.08), transparent 25%),
-                        radial-gradient(circle at 85% 30%, rgba(85, 25, 139, 0.08), transparent 25%);
+        radial-gradient(circle at 85% 30%, rgba(85, 25, 139, 0.08), transparent 25%);
       background-attachment: fixed;
     }
-    
+
     [data-theme="dark"] body {
       background-image: radial-gradient(circle at 15% 50%, rgba(85, 25, 139, 0.15), transparent 25%),
-                        radial-gradient(circle at 85% 30%, rgba(85, 25, 139, 0.15), transparent 25%);
+        radial-gradient(circle at 85% 30%, rgba(85, 25, 139, 0.15), transparent 25%);
     }
 
     /* Gradient Text for Main Headings */
-    .greeting-text, .skills-heading-text, .skills-heading {
+    .greeting-text,
+    .skills-heading-text,
+    .skills-heading {
       background: linear-gradient(90deg, var(--text-color) 0%, var(--accent-color) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -850,7 +852,9 @@
     }
 
     /* Glassmorphism Cards */
-    .experience-card, .project-card, .education-card {
+    .experience-card,
+    .project-card,
+    .education-card {
       background: rgba(255, 255, 255, 0.03) !important;
       backdrop-filter: blur(10px) !important;
       -webkit-backdrop-filter: blur(10px) !important;
@@ -858,9 +862,9 @@
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05) !important;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
     }
-    
-    [data-theme="dark"] .experience-card, 
-    [data-theme="dark"] .project-card, 
+
+    [data-theme="dark"] .experience-card,
+    [data-theme="dark"] .project-card,
     [data-theme="dark"] .education-card {
       background: rgba(31, 38, 59, 0.4) !important;
       border: 1px solid rgba(255, 255, 255, 0.05) !important;
@@ -868,34 +872,48 @@
     }
 
     /* Hover Effects for Cards */
-    .experience-card:hover, .project-card:hover, .education-card:hover {
+    .experience-card:hover,
+    .project-card:hover,
+    .education-card:hover {
       transform: translateY(-10px) scale(1.02) !important;
       box-shadow: 0 15px 40px 0 rgba(85, 25, 139, 0.15) !important;
       border-color: rgba(85, 25, 139, 0.3) !important;
     }
-    
-    [data-theme="dark"] .experience-card:hover, 
-    [data-theme="dark"] .project-card:hover, 
+
+    [data-theme="dark"] .experience-card:hover,
+    [data-theme="dark"] .project-card:hover,
     [data-theme="dark"] .education-card:hover {
       box-shadow: 0 15px 40px 0 rgba(85, 25, 139, 0.4) !important;
       border-color: rgba(85, 25, 139, 0.5) !important;
     }
 
     /* Floating Animation for Images */
-    .greeting-image-div img, .skills-image-div img, .proficiency-image-div img, .contact-image-div img {
+    .greeting-image-div img,
+    .skills-image-div img,
+    .proficiency-image-div img,
+    .contact-image-div img {
       animation: float 6s ease-in-out infinite;
     }
 
     @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0px); }
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
     }
 
     /* Tech Icons Glow on Hover */
     .software-skill-inline i {
       transition: all 0.3s ease;
     }
+
     .software-skill-inline i:hover {
       color: var(--accent-color) !important;
       transform: scale(1.2) translateY(-5px);
@@ -908,15 +926,19 @@
       overflow: hidden;
       z-index: 1;
     }
+
     .main-button::before {
       content: '';
       position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transition: all 0.5s ease;
       z-index: -1;
     }
+
     .main-button:hover::before {
       left: 100%;
     }
@@ -1258,7 +1280,7 @@
     <div class="contact-text-div">
       <h1 class="contact-heading">Reach Out to me!</h1>
       <p class="contact-subtitle subTitle">DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR ALL.</p>
-      <p class="contact-detail">Fullstack Developer | API Integrator | Database Designer</p>
+      <p class="contact-detail">Fullstack Developer</p>
       <p class="contact-detail" style="margin-bottom: 30px;"><i class="fas fa-map-marker-alt"
           style="margin-right: 10px;"></i> Pune, India</p>
       <div class="social-media-div" style="justify-content: flex-start;">
