@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaitanya Deshpande | Fullstack Developer</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Caveat:wght@700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <!-- Static Images -->
+
+  <style>
+    :root {
+      --bg-color: #FFFFFF;
+      --text-color: #000000;
+      --text-secondary: #868E96;
+      --text-tertiary: #A6A6A6;
+      --accent-color: #55198B;
+      --card-bg: #FFFFFF;
+      --header-bg: #FFFFFF;
+      --shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2);
+      --border-color: rgba(0, 0, 0, 0.1);
+      --btn-text: #55198B;
+      --btn-bg: transparent;
+      --btn-hover-bg: #55198B;
+      --btn-hover-text: #FFFFFF;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #171C28;
+      --text-color: #FFFFFF;
+      --text-secondary: #868E96;
+      --text-tertiary: #A6A6A6;
+      --accent-color: #55198B;
+      --card-bg: #1F263B;
+      --header-bg: #171C28;
+      --shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --btn-text: #FFFFFF;
+      --btn-bg: transparent;
+      --btn-hover-bg: #FFFFFF;
+      --btn-hover-text: #171C28;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 0;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .subTitle {
+      color: var(--text-secondary);
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    /* --- HEADER --- */
+    .header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      font-family: 'Caveat', cursive;
+      font-size: 40px;
+      text-decoration: none;
+      color: var(--text-color);
+    }
+
+    .logo .grey-color {
+      color: var(--text-secondary);
+    }
+
+    .logo-name {
+      font-weight: 700;
+    }
+
+    .logo:hover .logo-name {
+      color: var(--accent-color);
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 18px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .menu li a:hover {
+      background-color: rgba(134, 142, 150, 0.2);
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin: -10px -20px;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 20px;
+      padding: 5px;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-btn {
+      display: none;
+    }
+
+    .menu-icon {
+      display: none;
+    }
+
+    /* --- BUTTONS --- */
+    .main-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: 1px solid var(--accent-color);
+      color: var(--btn-text);
+      background-color: var(--btn-bg);
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .main-button:hover {
+      background-color: var(--btn-hover-bg);
+      color: var(--btn-hover-text);
+      box-shadow: 0 5px 15px rgba(85, 25, 139, 0.4);
+    }
+
+    /* --- LOTTIE --- */
+    .lottie-container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* --- GREETING --- */
+    .greeting-main {
+      display: flex;
+      align-items: center;
+      padding: 50px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 50px;
+      min-height: 80vh;
+    }
+
+    .greeting-text-div {
+      flex: 1;
+    }
+
+    .greeting-image-div {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .greeting-text {
+      font-size: 70px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .greeting-text-p {
+      font-size: 22px;
+      line-height: 35px;
+      margin-bottom: 30px;
+    }
+
+    .wave-emoji {
+      display: inline-block;
+      animation: wave 2.5s infinite;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes wave {
+      0% {
+        transform: rotate(0.0deg)
+      }
+
+      10% {
+        transform: rotate(14.0deg)
+      }
+
+      20% {
+        transform: rotate(-8.0deg)
+      }
+
+      30% {
+        transform: rotate(14.0deg)
+      }
+
+      40% {
+        transform: rotate(-4.0deg)
+      }
+
+      50% {
+        transform: rotate(10.0deg)
+      }
+
+      60% {
+        transform: rotate(0.0deg)
+      }
+
+      100% {
+        transform: rotate(0.0deg)
+      }
+    }
+
+    .social-media-div {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .icon-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 22px;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .github {
+      background-color: #333;
+    }
+
+    .linkedin {
+      background-color: #0e76a8;
+    }
+
+    .google {
+      background-color: #ea4335;
+    }
+
+    .icon-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    }
+
+    .button-greeting-div {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* --- SKILLS --- */
+    .skills-main-div {
+      display: flex;
+      align-items: center;
+      padding: 50px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 50px;
+      min-height: 80vh;
+    }
+
+    .skills-image-div {
+      flex: 1;
+    }
+
+    .skills-text-div {
+      flex: 1;
+    }
+
+    .skills-heading-text {
+      font-size: 50px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .software-skills-main-div ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+
+    .software-skill-inline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .software-skill-inline i {
+      font-size: 50px;
+      color: var(--text-secondary);
+      transition: 0.3s;
+    }
+
+    .software-skill-inline i:hover {
+      color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    .software-skill-inline p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    .skills-text-subtitle {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    /* --- PROFICIENCY --- */
+    .proficiency-main {
+      display: flex;
+      align-items: center;
+      padding: 50px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 50px;
+      min-height: 80vh;
+    }
+
+    .skill-bars {
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    .skill-bar {
+      margin-bottom: 25px;
+    }
+
+    .skill-name {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .skill-progress-bg {
+      background-color: rgba(134, 142, 150, 0.2);
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      background-color: var(--accent-color);
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    /* --- EXPERIENCE --- */
+    .skills-heading {
+      font-size: 50px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .experience-cards-div {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 50px 30px;
+    }
+
+    .experience-card {
+      position: relative;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 60px 30px 30px;
+      transition: 0.3s;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .experience-card:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .experience-card-logo {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .experience-card-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .experience-card-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .experience-card-company {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .experience-card-duration {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      margin-bottom: 20px;
+    }
+
+    .experience-card-description {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      text-align: left;
+    }
+
+    /* --- PROJECTS --- */
+    .projects-cards-div {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      padding: 25px;
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .project-card-top {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .project-icon {
+      font-size: 24px;
+      color: var(--text-color);
+    }
+
+    .project-name {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .project-description {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .project-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-stat-container {
+      display: flex;
+      gap: 15px;
+    }
+
+    .project-stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .project-stat p {
+      margin: 0;
+    }
+
+    .language-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .github-repo-btn {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* --- EDUCATION --- */
+    .education-cards-div {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .education-card {
+      display: flex;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
+    }
+
+    .education-card:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .education-card-left {
+      width: 180px;
+      background-color: rgba(134, 142, 150, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .education-card-left img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid var(--bg-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .education-card-right {
+      padding: 30px;
+      flex: 1;
+    }
+
+    .education-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .education-card-college {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 5px 0;
+      color: var(--text-color);
+    }
+
+    .education-card-degree {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+      color: var(--text-secondary);
+    }
+
+    .education-card-duration {
+      font-size: 16px;
+      color: var(--text-color);
+      background-color: rgba(134, 142, 150, 0.15);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .education-card-desc {
+      font-size: 16px;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* --- CONTACT --- */
+    .contact-main {
+      display: flex;
+      align-items: center;
+      padding: 80px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 50px;
+    }
+
+    .contact-image-div {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-image-div img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 10px solid rgba(134, 142, 150, 0.1);
+    }
+
+    .contact-text-div {
+      flex: 1.5;
+    }
+
+    .contact-heading {
+      font-size: 50px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .contact-subtitle {
+      font-size: 22px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    .contact-detail {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 18px;
+    }
+
+    .heart {
+      color: red;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+
+      .greeting-main,
+      .skills-main-div,
+      .proficiency-main,
+      .contact-main {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .greeting-text {
+        font-size: 45px;
+      }
+
+      .greeting-text-p {
+        font-size: 18px;
+      }
+
+      .button-greeting-div,
+      .social-media-div,
+      .software-skills-main-div ul {
+        justify-content: center;
+      }
+
+      .education-card {
+        flex-direction: column;
+      }
+
+      .education-card-left {
+        width: 100%;
+        padding: 30px 0;
+      }
+
+      .education-card-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .education-card-college-div,
+      .education-card-duration-div {
+        text-align: center;
+        width: 100%;
+      }
+
+      .education-card-right {
+        text-align: center;
+      }
+
+      .contact-text-div .social-media-div {
+        justify-content: center !important;
+      }
+
+      /* Mobile Nav */
+      .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        background-color: var(--header-bg);
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+      }
+
+      .menu-icon {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      .navicon {
+        background: var(--text-color);
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 24px;
+      }
+
+      .navicon:before,
+      .navicon:after {
+        background: var(--text-color);
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all .2s ease-out;
+        width: 100%;
+      }
+
+      .navicon:before {
+        top: 7px;
+      }
+
+      .navicon:after {
+        top: -7px;
+      }
+
+      .menu-btn:checked~.menu {
+        display: flex;
+      }
+
+      .menu-btn:checked~.menu-icon .navicon {
+        background: transparent;
+      }
+
+      .menu-btn:checked~.menu-icon .navicon:before {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+
+      .menu-btn:checked~.menu-icon .navicon:after {
+        transform: rotate(45deg);
+        top: 0;
+      }
+    }
+
+    /* --- PREMIUM UI UPGRADES --- */
+    
+    /* Background gradients & patterns */
+    body {
+      background-image: radial-gradient(circle at 15% 50%, rgba(85, 25, 139, 0.08), transparent 25%),
+                        radial-gradient(circle at 85% 30%, rgba(85, 25, 139, 0.08), transparent 25%);
+      background-attachment: fixed;
+    }
+    
+    [data-theme="dark"] body {
+      background-image: radial-gradient(circle at 15% 50%, rgba(85, 25, 139, 0.15), transparent 25%),
+                        radial-gradient(circle at 85% 30%, rgba(85, 25, 139, 0.15), transparent 25%);
+    }
+
+    /* Gradient Text for Main Headings */
+    .greeting-text, .skills-heading-text, .skills-heading {
+      background: linear-gradient(90deg, var(--text-color) 0%, var(--accent-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    /* Glassmorphism Cards */
+    .experience-card, .project-card, .education-card {
+      background: rgba(255, 255, 255, 0.03) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(0, 0, 0, 0.05) !important;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05) !important;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    }
+    
+    [data-theme="dark"] .experience-card, 
+    [data-theme="dark"] .project-card, 
+    [data-theme="dark"] .education-card {
+      background: rgba(31, 38, 59, 0.4) !important;
+      border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Hover Effects for Cards */
+    .experience-card:hover, .project-card:hover, .education-card:hover {
+      transform: translateY(-10px) scale(1.02) !important;
+      box-shadow: 0 15px 40px 0 rgba(85, 25, 139, 0.15) !important;
+      border-color: rgba(85, 25, 139, 0.3) !important;
+    }
+    
+    [data-theme="dark"] .experience-card:hover, 
+    [data-theme="dark"] .project-card:hover, 
+    [data-theme="dark"] .education-card:hover {
+      box-shadow: 0 15px 40px 0 rgba(85, 25, 139, 0.4) !important;
+      border-color: rgba(85, 25, 139, 0.5) !important;
+    }
+
+    /* Floating Animation for Images */
+    .greeting-image-div img, .skills-image-div img, .proficiency-image-div img, .contact-image-div img {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Tech Icons Glow on Hover */
+    .software-skill-inline i {
+      transition: all 0.3s ease;
+    }
+    .software-skill-inline i:hover {
+      color: var(--accent-color) !important;
+      transform: scale(1.2) translateY(-5px);
+      text-shadow: 0 10px 20px rgba(85, 25, 139, 0.5);
+    }
+
+    /* Button Glow Effect */
+    .main-button {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .main-button::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: all 0.5s ease;
+      z-index: -1;
+    }
+    .main-button:hover::before {
+      left: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="/" class="logo">
+      <span class="grey-color">&lt;</span>
+      <span class="logo-name">Chaitanya</span>
+      <span class="grey-color">/&gt;</span>
+    </a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+      <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+      <li><a href="#experience" onclick="closeMenu()">Work Experiences</a></li>
+      <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+      <li><a href="#education" onclick="closeMenu()">Education</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact Me</a></li>
+      <li>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-sun"></i>
+        </button>
+      </li>
+    </ul>
+  </header>
+
+  <!-- GREETING -->
+  <section class="greeting-main" id="greeting">
+    <div class="greeting-text-div">
+      <h1 class="greeting-text">Hi all, I'm Chaitanya <span class="wave-emoji">👋</span></h1>
+      <p class="greeting-text-p subTitle">A passionate Fullstack Developer 🚀 having an experience of building scalable
+        web applications, REST APIs, and fintech platforms with PHP, Laravel, CodeIgniter, JavaScript, and PostgreSQL.
+      </p>
+      <div class="social-media-div">
+        <a href="https://github.com/chaitudesh" class="icon-button github" target="_blank"><i
+            class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/chaitanya-deshpande-77bb50218/" class="icon-button linkedin" target="_blank"><i
+            class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:chaitanyadesh2001@gmail.com" class="icon-button google" target="_blank"><i
+            class="fas fa-envelope"></i></a>
+      </div>
+      <div class="button-greeting-div">
+        <a class="main-button" href="#contact">Contact me</a>
+        <a class="main-button" href="#projects">See my work</a>
+      </div>
+    </div>
+    <div class="greeting-image-div lottie-container">
+      <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/manOnTable.svg"
+        alt="Developer Activity" style="width: 100%; height: auto;">
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills-main-div" id="skills">
+    <div class="skills-image-div lottie-container">
+      <img
+        src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/developerActivity.svg"
+        alt="Full Stack Developer" style="width: 100%; height: auto;">
+    </div>
+    <div class="skills-text-div">
+      <h1 class="skills-heading-text">What I do</h1>
+      <p class="subTitle skills-text-subtitle" style="font-size:25px; text-transform:uppercase;">Crazy Full Stack
+        Developer Who Wants To Explore Every Tech Stack</p>
+      <div class="software-skills-main-div">
+        <ul class="dev-icons">
+          <li class="software-skill-inline"><i class="devicon-html5-plain"></i>
+            <p>HTML5</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-css3-plain"></i>
+            <p>CSS3</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-javascript-plain"></i>
+            <p>JavaScript</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-jquery-plain"></i>
+            <p>jQuery</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-php-plain"></i>
+            <p>PHP</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-laravel-plain"></i>
+            <p>Laravel</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-codeigniter-plain"></i>
+            <p>CodeIgniter</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-postgresql-plain"></i>
+            <p>PostgreSQL</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-mysql-plain"></i>
+            <p>MySQL</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-git-plain"></i>
+            <p>Git</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-nodejs-plain"></i>
+            <p>Node.js</p>
+          </li>
+          <li class="software-skill-inline"><i class="devicon-react-original"></i>
+            <p>React</p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="subTitle skills-text-subtitle">⚡ Building scalable and robust REST APIs using Laravel & CodeIgniter
+        </p>
+        <p class="subTitle skills-text-subtitle">⚡ Developing dynamic, interactive UIs with JavaScript, jQuery, and
+          Bootstrap</p>
+        <p class="subTitle skills-text-subtitle">⚡ Designing optimized database schemas for high-volume financial
+          applications</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFICIENCY -->
+  <section class="proficiency-main">
+    <div class="proficiency-text-div" style="flex:1;">
+      <h1 class="skills-heading-text">Proficiency</h1>
+      <div class="skill-bars">
+        <div class="skill-bar">
+          <div class="skill-name">Backend</div>
+          <div class="skill-progress-bg">
+            <div class="skill-progress" style="width: 90%;"></div>
+          </div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-name">Frontend</div>
+          <div class="skill-progress-bg">
+            <div class="skill-progress" style="width: 90%;"></div>
+          </div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-name">Databases</div>
+          <div class="skill-progress-bg">
+            <div class="skill-progress" style="width: 85%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="proficiency-image-div lottie-container" style="flex:1;">
+      <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/skill.svg"
+        alt="Skills" style="width: 100%; height: auto;">
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" style="padding: 100px 0 50px;">
+    <h1 class="skills-heading">Experience</h1>
+    <div class="experience-cards-div">
+      <div class="experience-card">
+        <div class="experience-card-logo">
+          <img src="https://ui-avatars.com/api/?name=Paradiso+Software&background=0D8ABC&color=fff&bold=true"
+            alt="Paradiso">
+        </div>
+        <div class="experience-card-body">
+          <h3 class="experience-card-title">Fullstack Developer</h3>
+          <h4 class="experience-card-company">Paradiso Software Pvt. Ltd</h4>
+          <div class="experience-card-duration">Apr 2025 – Present</div>
+          <p class="experience-card-description">
+            Building Course Studio — an eLearning authoring tool. Developed REST APIs, core features, and AI-powered 3D
+            avatar lip-sync.
+          </p>
+        </div>
+      </div>
+
+      <div class="experience-card">
+        <div class="experience-card-logo">
+          <img src="https://ui-avatars.com/api/?name=Loantap&background=FF6B6B&color=fff&bold=true" alt="Loantap">
+        </div>
+        <div class="experience-card-body">
+          <h3 class="experience-card-title">Software Developer</h3>
+          <h4 class="experience-card-company">Loantap Financial Technologies</h4>
+          <div class="experience-card-duration">Oct 2024 – Dec 2024</div>
+          <p class="experience-card-description">
+            Led the full software development lifecycle for a Loan Origination and Management System. Developed and
+            integrated secure RESTful APIs.
+          </p>
+        </div>
+      </div>
+
+      <div class="experience-card">
+        <div class="experience-card-logo">
+          <img src="https://ui-avatars.com/api/?name=Paymint&background=4ECDC4&color=fff&bold=true" alt="Paymint">
+        </div>
+        <div class="experience-card-body">
+          <h3 class="experience-card-title">Fullstack Developer</h3>
+          <h4 class="experience-card-company">Paymint Fintech Private Limited</h4>
+          <div class="experience-card-duration">Oct 2021 – Sep 2024</div>
+          <p class="experience-card-description">
+            Designed and built scalable fintech applications including a Prepaid Cards Management System and Core
+            Banking System modules using CodeIgniter and PostgreSQL.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="padding: 100px 0 50px;">
+    <h1 class="skills-heading">Open Source Projects</h1>
+    <div class="projects-cards-div">
+      <div class="project-card">
+        <div class="project-card-top">
+          <i class="fas fa-book project-icon"></i>
+          <h2 class="project-name">Course Creation Module</h2>
+        </div>
+        <p class="project-description">Web-based eLearning authoring tool with slide management, AI-powered 3D avatar
+          lip-sync, and optimized REST APIs.</p>
+        <div class="project-card-bottom">
+          <div class="project-stat-container">
+            <div class="project-stat">
+              <div class="language-color" style="background-color: #4F5D95"></div>
+              <p>PHP</p>
+            </div>
+            <div class="project-stat">
+              <div class="language-color" style="background-color: #F05340"></div>
+              <p>Laravel</p>
+            </div>
+            <div class="project-stat">
+              <div class="language-color" style="background-color: #f1e05a"></div>
+              <p>JavaScript</p>
+            </div>
+          </div>
+          <div class="project-stat">10 MB</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top">
+          <i class="fas fa-book project-icon"></i>
+          <h2 class="project-name">Prepaid Cards Management</h2>
+        </div>
+        <p class="project-description">Scalable prepaid card platform managing full card lifecycle — issuance,
+          activation, recharge, and transactions. Built with Laravel MVC.</p>
+        <div class="project-card-bottom">
+          <div class="project-stat-container">
+            <div class="project-stat">
+              <div class="language-color" style="background-color: #4F5D95"></div>
+              <p>PHP</p>
+            </div>
+            <div class="project-stat">
+              <div class="language-color" style="background-color: #F05340"></div>
+              <p>Laravel</p>
+            </div>
+            <div class="project-stat">
+              <div class="language-color" style="background-color: #e34c26"></div>
+              <p>MySQL</p>
+            </div>
+          </div>
+          <div class="project-stat">15 MB</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top">
+          <i class="fas fa-book project-icon"></i>
+          <h2 class="project-name">Core Banking System</h2>
+        </div>
+        <p class="project-description">Secure APIs for account management, inter-bank transactions, and automated batch
+          processing for interest calculation and settlements.</p>
+        <div class="project-card-bottom">
+          <div class="project-stat-container">
+            <div class="project-stat">
+              <div class="language-color" style="background-color: #4F5D95"></div>
+              <p>PHP</p>
+            </div>
+            <div class="project-stat">
+              <div class="language-color" style="background-color: #EE4323"></div>
+              <p>CodeIgniter</p>
+            </div>
+            <div class="project-stat">
+              <div class="language-color" style="background-color: #336791"></div>
+              <p>PostgreSQL</p>
+            </div>
+          </div>
+          <div class="project-stat">20 MB</div>
+        </div>
+      </div>
+    </div>
+    <div class="github-repo-btn">
+      <a class="main-button" href="https://github.com/chaitudesh" target="_blank">More Projects</a>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="padding: 100px 0 50px;">
+    <h1 class="skills-heading">Education</h1>
+    <div class="education-cards-div">
+      <div class="education-card">
+        <div class="education-card-left">
+          <img src="https://ui-avatars.com/api/?name=HVD&background=55198B&color=fff&bold=true" alt="College">
+        </div>
+        <div class="education-card-right">
+          <div class="education-card-header">
+            <div class="education-card-college-div">
+              <h3 class="education-card-college">Haribhai V. Desai College, Pune</h3>
+              <h4 class="education-card-degree">Master of Science in Computer Science</h4>
+            </div>
+            <div class="education-card-duration-div">
+              <div class="education-card-duration">2021 - 2024</div>
+            </div>
+          </div>
+          <p class="education-card-desc">Graduated with a CGPA of 7.20. Specialized in Advanced Software Engineering,
+            Database Systems, and Web Technologies.</p>
+        </div>
+      </div>
+
+      <div class="education-card">
+        <div class="education-card-left">
+          <img src="https://ui-avatars.com/api/?name=HVD&background=55198B&color=fff&bold=true" alt="College">
+        </div>
+        <div class="education-card-right">
+          <div class="education-card-header">
+            <div class="education-card-college-div">
+              <h3 class="education-card-college">Haribhai V. Desai College, Pune</h3>
+              <h4 class="education-card-degree">Bachelor of Science in Computer Science</h4>
+            </div>
+            <div class="education-card-duration-div">
+              <div class="education-card-duration">2018 - 2021</div>
+            </div>
+          </div>
+          <p class="education-card-desc">Graduated with 68%. Built foundational knowledge in Programming, Data
+            Structures, and Database Management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-main" id="contact">
+    <div class="contact-image-div">
+      <img src="./profile.jpg" alt="Chaitanya Deshpande" class="profile-image">
+    </div>
+    <div class="contact-text-div">
+      <h1 class="contact-heading">Reach Out to me!</h1>
+      <p class="contact-subtitle subTitle">DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR ALL.</p>
+      <p class="contact-detail">Fullstack Developer | API Integrator | Database Designer</p>
+      <p class="contact-detail" style="margin-bottom: 30px;"><i class="fas fa-map-marker-alt"
+          style="margin-right: 10px;"></i> Pune, India</p>
+      <div class="social-media-div" style="justify-content: flex-start;">
+        <a href="https://github.com/chaitudesh" class="icon-button github" target="_blank"><i
+            class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/chaitanya-deshpande-77bb50218/" class="icon-button linkedin" target="_blank"><i
+            class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:chaitanyadesh2001@gmail.com" class="icon-button google" target="_blank"><i
+            class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Made with <span class="heart">❤️</span> by Chaitanya Deshpande</p>
+  </footer>
+
+  <script>
+    // Theme Toggle Logic
+    const toggleButton = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    const icon = toggleButton.querySelector('i');
+
+    let isDark = true;
+    toggleButton.addEventListener('click', () => {
+      isDark = !isDark;
+      if (isDark) {
+        root.setAttribute('data-theme', 'dark');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        root.removeAttribute('data-theme');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    });
+
+    // Close mobile menu on link click
+    function closeMenu() {
+      document.getElementById('menu-btn').checked = false;
+    }
+  </script>
+</body>
+
+</html>
