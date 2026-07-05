@@ -848,7 +848,6 @@
       background: linear-gradient(90deg, var(--text-color) 0%, var(--accent-color) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      display: inline-block;
     }
 
     /* Glassmorphism Cards */
@@ -942,6 +941,104 @@
     .main-button:hover::before {
       left: 100%;
     }
+
+    .trust-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .trust-stat {
+      background: rgba(85, 25, 139, 0.08);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .about-card,
+    .service-card,
+    .repo-card,
+    .testimonial-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .about-list i {
+      color: var(--accent-color);
+      margin-top: 4px;
+    }
+
+    .service-grid,
+    .repo-grid,
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .service-card h3,
+    .repo-card h3,
+    .testimonial-card h4 {
+      margin-bottom: 8px;
+    }
+
+    .service-card p,
+    .repo-card p,
+    .testimonial-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .repo-card a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 12px;
+    }
+
+    .project-highlight-list {
+      padding-left: 18px;
+      margin: 12px 0 0;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .project-highlight-list li {
+      margin-bottom: 6px;
+    }
   </style>
 </head>
 
@@ -957,11 +1054,11 @@
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu">
-      <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
-      <li><a href="#experience" onclick="closeMenu()">Work Experiences</a></li>
+      <li><a href="#skills" onclick="closeMenu()">About</a></li>
+      <li><a href="#services" onclick="closeMenu()">Services</a></li>
+      <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
       <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
-      <li><a href="#education" onclick="closeMenu()">Education</a></li>
-      <li><a href="#contact" onclick="closeMenu()">Contact Me</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
       <li>
         <button class="theme-toggle" id="theme-toggle">
           <i class="fas fa-sun"></i>
@@ -973,10 +1070,9 @@
   <!-- GREETING -->
   <section class="greeting-main" id="greeting">
     <div class="greeting-text-div">
-      <h1 class="greeting-text">Hi all, I'm Chaitanya <span class="wave-emoji">👋</span></h1>
-      <p class="greeting-text-p subTitle">A passionate Fullstack Developer 🚀 having an experience of building scalable
-        web applications, REST APIs, and fintech platforms with PHP, Laravel, CodeIgniter, JavaScript, and PostgreSQL.
-      </p>
+      <h1 class="greeting-text">Laravel & PHP Backend Developer</h1>
+      <p class="greeting-text-p subTitle">4+ Years of Experience | REST APIs | Payment Gateway Integration | FinTech & Banking Applications</p>
+      <p class="greeting-text-p" style="font-size: 18px; line-height: 30px;">Need a Laravel developer? I help build scalable web applications, secure APIs, payment integrations, and admin dashboards for fintech and banking products.</p>
       <div class="social-media-div">
         <a href="https://github.com/chaitudesh" class="icon-button github" target="_blank"><i
             class="fab fa-github"></i></a>
@@ -986,8 +1082,16 @@
             class="fas fa-envelope"></i></a>
       </div>
       <div class="button-greeting-div">
-        <a class="main-button" href="#contact">Contact me</a>
-        <a class="main-button" href="#projects">See my work</a>
+        <a class="main-button" href="mailto:chaitanyadesh2001@gmail.com?subject=Project%20Inquiry">Hire Me</a>
+        <a class="main-button" href="#projects">View Projects</a>
+        <a class="main-button" href="./resume.html" download="Chaitanya-Deshpande-Resume.html">Download Resume</a>
+      </div>
+      <div class="trust-stats">
+        <div class="trust-stat">✅ 4+ Years Experience</div>
+        <div class="trust-stat">✅ 20+ Projects Delivered</div>
+        <div class="trust-stat">✅ REST APIs</div>
+        <div class="trust-stat">✅ Payment Gateway Integrations</div>
+        <div class="trust-stat">✅ Banking & FinTech Domain</div>
       </div>
     </div>
     <div class="greeting-image-div lottie-container">
@@ -996,102 +1100,111 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- ABOUT -->
   <section class="skills-main-div" id="skills">
     <div class="skills-image-div lottie-container">
       <img
         src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/developerActivity.svg"
-        alt="Full Stack Developer" style="width: 100%; height: auto;">
+        alt="Backend Developer" style="width: 100%; height: auto;">
     </div>
     <div class="skills-text-div">
-      <h1 class="skills-heading-text">What I do</h1>
-      <p class="subTitle skills-text-subtitle" style="font-size:25px; text-transform:uppercase;">Crazy Full Stack
-        Developer Who Wants To Explore Every Tech Stack</p>
-      <div class="software-skills-main-div">
-        <ul class="dev-icons">
-          <li class="software-skill-inline"><i class="devicon-html5-plain"></i>
-            <p>HTML5</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-css3-plain"></i>
-            <p>CSS3</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-javascript-plain"></i>
-            <p>JavaScript</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-jquery-plain"></i>
-            <p>jQuery</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-php-plain"></i>
-            <p>PHP</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-laravel-plain"></i>
-            <p>Laravel</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-codeigniter-plain"></i>
-            <p>CodeIgniter</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-postgresql-plain"></i>
-            <p>PostgreSQL</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-mysql-plain"></i>
-            <p>MySQL</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-git-plain"></i>
-            <p>Git</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-nodejs-plain"></i>
-            <p>Node.js</p>
-          </li>
-          <li class="software-skill-inline"><i class="devicon-react-original"></i>
-            <p>React</p>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <p class="subTitle skills-text-subtitle">⚡ Building scalable and robust REST APIs using Laravel & CodeIgniter
-        </p>
-        <p class="subTitle skills-text-subtitle">⚡ Developing dynamic, interactive UIs with JavaScript, jQuery, and
-          Bootstrap</p>
-        <p class="subTitle skills-text-subtitle">⚡ Designing optimized database schemas for high-volume financial
-          applications</p>
+      <h1 class="skills-heading-text">About Me</h1>
+      <p class="subTitle skills-text-subtitle">I’m a backend-focused developer with 4+ years of experience building secure, high-performance systems for fintech and banking products.</p>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>What I bring</h3>
+          <ul class="about-list">
+            <li><i class="fas fa-check-circle"></i><span>Laravel & CodeIgniter development for scalable web applications.</span></li>
+            <li><i class="fas fa-check-circle"></i><span>REST API design and integration with payment gateways such as Stripe and Razorpay.</span></li>
+            <li><i class="fas fa-check-circle"></i><span>JWT authentication, MySQL/PostgreSQL database design, and performance tuning.</span></li>
+            <li><i class="fas fa-check-circle"></i><span>Experience in loan systems, core banking modules, employee management, and admin platforms.</span></li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h3>Core strengths</h3>
+          <ul class="about-list">
+            <li><i class="fas fa-code"></i><span>Clean, maintainable backend architecture.</span></li>
+            <li><i class="fas fa-bolt"></i><span>Fast performance optimization for data-heavy workflows.</span></li>
+            <li><i class="fas fa-shield-alt"></i><span>Secure integrations for financial products and sensitive operations.</span></li>
+            <li><i class="fas fa-comments"></i><span>Clear communication and reliable delivery.</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PROFICIENCY -->
-  <section class="proficiency-main">
+  <!-- SERVICES -->
+  <section id="services" style="padding: 60px 5% 80px; max-width: 1200px; margin: 0 auto;">
+    <h1 class="skills-heading">Services</h1>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Laravel Development</h3>
+        <p>Scalable backend modules, feature development, and maintainable application architecture.</p>
+      </div>
+      <div class="service-card">
+        <h3>REST API Development</h3>
+        <p>Secure and efficient APIs for web and mobile applications with clean documentation.</p>
+      </div>
+      <div class="service-card">
+        <h3>Third-party Integrations</h3>
+        <p>Stripe, Razorpay, and other payment or business-tool integrations tailored to your product.</p>
+      </div>
+      <div class="service-card">
+        <h3>Database Optimization</h3>
+        <p>MySQL and PostgreSQL tuning, query optimization, and schema improvements for performance.</p>
+      </div>
+      <div class="service-card">
+        <h3>Admin Panel Development</h3>
+        <p>Role-based dashboards and internal tools for operations, approvals, and reporting.</p>
+      </div>
+      <div class="service-card">
+        <h3>Legacy CodeIgniter Maintenance</h3>
+        <p>Support, bug fixing, upgrades, and long-term maintenance for older PHP systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME SNAPSHOT -->
+  <section id="resume" style="padding: 20px 5% 80px; max-width: 1200px; margin: 0 auto;">
+    <div class="about-card" style="padding: 32px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 18px;">
+        <div>
+          <h2 class="skills-heading-text" style="font-size: 34px; margin-bottom: 8px;">Resume Highlights</h2>
+          <p class="subTitle skills-text-subtitle" style="font-size: 18px; line-height: 1.6; margin-bottom: 0;">Focused on measurable impact, financial domain experience, and backend systems that power real products.</p>
+        </div>
+        <a class="main-button" href="./resume.html" download="Chaitanya-Deshpande-Resume.html">Download Resume</a>
+      </div>
+      <ul class="about-list">
+        <li><i class="fas fa-check-circle"></i><span>4+ years of experience building secure Laravel and PHP backend systems for fast-moving products.</span></li>
+        <li><i class="fas fa-check-circle"></i><span>Delivered 20+ projects with a strong focus on REST APIs, payment gateway integrations, and admin dashboards.</span></li>
+        <li><i class="fas fa-check-circle"></i><span>Worked on Loan Management System, Core Banking System (CBS), Employee Management System, and fintech payment workflows.</span></li>
+        <li><i class="fas fa-check-circle"></i><span>Improved processing efficiency by 40% in a loan platform workflow and strengthened reliability for critical banking operations.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHY HIRE ME -->
+  <section class="proficiency-main" id="why-hire-me">
     <div class="proficiency-text-div" style="flex:1;">
-      <h1 class="skills-heading-text">Proficiency</h1>
-      <div class="skill-bars">
-        <div class="skill-bar">
-          <div class="skill-name">Backend</div>
-          <div class="skill-progress-bg">
-            <div class="skill-progress" style="width: 90%;"></div>
-          </div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-name">Frontend</div>
-          <div class="skill-progress-bg">
-            <div class="skill-progress" style="width: 90%;"></div>
-          </div>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-name">Databases</div>
-          <div class="skill-progress-bg">
-            <div class="skill-progress" style="width: 85%;"></div>
-          </div>
-        </div>
+      <h1 class="skills-heading-text">Why Hire Me?</h1>
+      <div class="about-card">
+        <ul class="about-list">
+          <li><i class="fas fa-check-circle"></i><span>Clean, maintainable Laravel and PHP code built for long-term scalability.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>Strong database optimization and API-first development for reliable fintech and banking platforms.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>Hands-on experience with Loan Management Systems, Core Banking workflows, Employee Management modules, and payment gateway integrations.</span></li>
+          <li><i class="fas fa-check-circle"></i><span>Clear communication, on-time delivery, and dependable post-delivery support.</span></li>
+        </ul>
       </div>
     </div>
     <div class="proficiency-image-div lottie-container" style="flex:1;">
       <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/skill.svg"
-        alt="Skills" style="width: 100%; height: auto;">
+        alt="Why Hire Me" style="width: 100%; height: auto;">
     </div>
   </section>
 
   <!-- EXPERIENCE -->
   <section id="experience" style="padding: 100px 0 50px;">
-    <h1 class="skills-heading">Experience</h1>
+    <h1 class="skills-heading">Relevant Experience</h1>
     <div class="experience-cards-div">
       <div class="experience-card">
         <div class="experience-card-logo">
@@ -1099,12 +1212,11 @@
             alt="Paradiso">
         </div>
         <div class="experience-card-body">
-          <h3 class="experience-card-title">Fullstack Developer</h3>
+          <h3 class="experience-card-title">Backend Developer</h3>
           <h4 class="experience-card-company">Paradiso Software Pvt. Ltd</h4>
           <div class="experience-card-duration">Apr 2025 – Present</div>
           <p class="experience-card-description">
-            Building Course Studio — an eLearning authoring tool. Developed REST APIs, core features, and AI-powered 3D
-            avatar lip-sync.
+            Building the Course Studio platform with REST APIs, content workflows, and scalable backend services for a modern eLearning product.
           </p>
         </div>
       </div>
@@ -1118,8 +1230,7 @@
           <h4 class="experience-card-company">Loantap Financial Technologies</h4>
           <div class="experience-card-duration">Oct 2024 – Dec 2024</div>
           <p class="experience-card-description">
-            Led the full software development lifecycle for a Loan Origination and Management System. Developed and
-            integrated secure RESTful APIs.
+            Contributed to a loan origination and management platform, building secure API flows and backend modules for a fast-moving lending product.
           </p>
         </div>
       </div>
@@ -1133,8 +1244,7 @@
           <h4 class="experience-card-company">Paymint Fintech Private Limited</h4>
           <div class="experience-card-duration">Oct 2021 – Sep 2024</div>
           <p class="experience-card-description">
-            Designed and built scalable fintech applications including a Prepaid Cards Management System and Core
-            Banking System modules using CodeIgniter and PostgreSQL.
+            Built fintech applications including a Prepaid Cards Management System, Core Banking System modules, and payment-enabled workflows using CodeIgniter, Laravel, PostgreSQL, and REST APIs.
           </p>
         </div>
       </div>
@@ -1143,88 +1253,80 @@
 
   <!-- PROJECTS -->
   <section id="projects" style="padding: 100px 0 50px;">
-    <h1 class="skills-heading">Open Source Projects</h1>
+    <h1 class="skills-heading">Featured Projects</h1>
     <div class="projects-cards-div">
       <div class="project-card">
         <div class="project-card-top">
-          <i class="fas fa-book project-icon"></i>
-          <h2 class="project-name">Course Creation Module</h2>
+          <i class="fas fa-university project-icon"></i>
+          <h2 class="project-name">Loan Management System</h2>
         </div>
-        <p class="project-description">Web-based eLearning authoring tool with slide management, AI-powered 3D avatar
-          lip-sync, and optimized REST APIs.</p>
-        <div class="project-card-bottom">
-          <div class="project-stat-container">
-            <div class="project-stat">
-              <div class="language-color" style="background-color: #4F5D95"></div>
-              <p>PHP</p>
-            </div>
-            <div class="project-stat">
-              <div class="language-color" style="background-color: #F05340"></div>
-              <p>Laravel</p>
-            </div>
-            <div class="project-stat">
-              <div class="language-color" style="background-color: #f1e05a"></div>
-              <p>JavaScript</p>
-            </div>
-          </div>
-          <div class="project-stat">10 MB</div>
-        </div>
+        <p class="project-description"><strong>Role:</strong> Backend Developer</p>
+        <p class="project-description"><strong>Technologies:</strong> Laravel, MySQL, REST API</p>
+        <ul class="project-highlight-list">
+          <li>Loan approval workflow</li>
+          <li>EMI calculation and status tracking</li>
+          <li>User authentication and admin dashboard</li>
+          <li>Payment integration support</li>
+        </ul>
+        <p class="project-description" style="margin-top: 12px;"><strong>Result:</strong> Reduced processing time by 40%.</p>
       </div>
 
       <div class="project-card">
         <div class="project-card-top">
-          <i class="fas fa-book project-icon"></i>
-          <h2 class="project-name">Prepaid Cards Management</h2>
-        </div>
-        <p class="project-description">Scalable prepaid card platform managing full card lifecycle — issuance,
-          activation, recharge, and transactions. Built with Laravel MVC.</p>
-        <div class="project-card-bottom">
-          <div class="project-stat-container">
-            <div class="project-stat">
-              <div class="language-color" style="background-color: #4F5D95"></div>
-              <p>PHP</p>
-            </div>
-            <div class="project-stat">
-              <div class="language-color" style="background-color: #F05340"></div>
-              <p>Laravel</p>
-            </div>
-            <div class="project-stat">
-              <div class="language-color" style="background-color: #e34c26"></div>
-              <p>MySQL</p>
-            </div>
-          </div>
-          <div class="project-stat">15 MB</div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-card-top">
-          <i class="fas fa-book project-icon"></i>
+          <i class="fas fa-piggy-bank project-icon"></i>
           <h2 class="project-name">Core Banking System</h2>
         </div>
-        <p class="project-description">Secure APIs for account management, inter-bank transactions, and automated batch
-          processing for interest calculation and settlements.</p>
-        <div class="project-card-bottom">
-          <div class="project-stat-container">
-            <div class="project-stat">
-              <div class="language-color" style="background-color: #4F5D95"></div>
-              <p>PHP</p>
-            </div>
-            <div class="project-stat">
-              <div class="language-color" style="background-color: #EE4323"></div>
-              <p>CodeIgniter</p>
-            </div>
-            <div class="project-stat">
-              <div class="language-color" style="background-color: #336791"></div>
-              <p>PostgreSQL</p>
-            </div>
-          </div>
-          <div class="project-stat">20 MB</div>
+        <p class="project-description"><strong>Role:</strong> Backend Developer</p>
+        <p class="project-description"><strong>Technologies:</strong> CodeIgniter, PostgreSQL, REST API</p>
+        <ul class="project-highlight-list">
+          <li>Account lifecycle management</li>
+          <li>Interest and settlement batch processing</li>
+          <li>Secure financial transaction workflows</li>
+          <li>High-volume data handling</li>
+        </ul>
+        <p class="project-description" style="margin-top: 12px;"><strong>Result:</strong> Improved reliability for critical banking operations.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top">
+          <i class="fas fa-users project-icon"></i>
+          <h2 class="project-name">Employee Management System</h2>
         </div>
+        <p class="project-description"><strong>Role:</strong> Fullstack Developer</p>
+        <p class="project-description"><strong>Technologies:</strong> Laravel, MySQL, JavaScript</p>
+        <ul class="project-highlight-list">
+          <li>Employee onboarding and records</li>
+          <li>Role-based administration</li>
+          <li>Reporting and workflow tracking</li>
+          <li>Dashboard-driven operations</li>
+        </ul>
+        <p class="project-description" style="margin-top: 12px;"><strong>Result:</strong> Streamlined daily administration and reporting.</p>
       </div>
     </div>
-    <div class="github-repo-btn">
-      <a class="main-button" href="https://github.com/chaitudesh" target="_blank">More Projects</a>
+
+    <div class="repo-grid" style="margin-top: 40px;">
+      <div class="repo-card">
+        <h3>GitHub Repositories</h3>
+        <p>Explore backend-focused work, authentication modules, API integrations, and small web apps.</p>
+        <a href="https://github.com/chaitudesh" target="_blank">View GitHub Profile</a>
+      </div>
+      <div class="repo-card">
+        <h3>Suggested repositories</h3>
+        <p>Laravel REST API • JWT Authentication • Payment Gateway Integration • Blog CMS • Node.js API</p>
+      </div>
+    </div>
+
+    <div class="testimonial-grid" style="margin-top: 30px;">
+      <div class="testimonial-card">
+        <p>“A strong backend developer who understands business workflows, APIs, and the need for reliable delivery.”</p>
+        <h4>Testimonial placeholder</h4>
+        <p>Replace with a real quote from a colleague or client.</p>
+      </div>
+      <div class="testimonial-card">
+        <p>“Great at translating product requirements into clean APIs, payment flows, and solid database design.”</p>
+        <h4>Testimonial placeholder</h4>
+        <p>Replace with a real quote from a manager or client.</p>
+      </div>
     </div>
   </section>
 
@@ -1278,12 +1380,16 @@
       <img src="./profile.jpg" alt="Chaitanya Deshpande" class="profile-image">
     </div>
     <div class="contact-text-div">
-      <h1 class="contact-heading">Reach Out to me!</h1>
-      <p class="contact-subtitle subTitle">DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR ALL.</p>
-      <p class="contact-detail">Fullstack Developer</p>
+      <h1 class="contact-heading">Need a Laravel developer?</h1>
+      <p class="contact-subtitle subTitle">I can help build scalable web applications, APIs, payment integrations, and admin dashboards for your business.</p>
+      <p class="contact-detail">Laravel & PHP Backend Developer</p>
       <p class="contact-detail" style="margin-bottom: 30px;"><i class="fas fa-map-marker-alt"
           style="margin-right: 10px;"></i> Pune, India</p>
-      <div class="social-media-div" style="justify-content: flex-start;">
+      <div class="button-greeting-div" style="justify-content: flex-start; flex-wrap: wrap;">
+        <a class="main-button" href="mailto:chaitanyadesh2001@gmail.com?subject=Project%20Inquiry">Hire Me</a>
+        <a class="main-button" href="https://linkedin.com/in/chaitanya-deshpande-77bb50218/" target="_blank">Connect on LinkedIn</a>
+      </div>
+      <div class="social-media-div" style="justify-content: flex-start; margin-top: 25px;">
         <a href="https://github.com/chaitudesh" class="icon-button github" target="_blank"><i
             class="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/chaitanya-deshpande-77bb50218/" class="icon-button linkedin" target="_blank"><i
@@ -1299,7 +1405,9 @@
     <p>Made with <span class="heart">❤️</span> by Chaitanya Deshpande</p>
   </footer>
 
+
   <script>
+    
     // Theme Toggle Logic
     const toggleButton = document.getElementById('theme-toggle');
     const root = document.documentElement;

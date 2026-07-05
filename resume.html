@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chaitanya Deshpande | Resume</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #5b6474;
+      --accent: #55198b;
+      --border: #e4e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 900px;
+      margin: 32px auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, var(--accent), #7b2cbf);
+      color: white;
+      padding: 32px;
+    }
+    .header h1 { margin: 0 0 8px; font-size: 30px; }
+    .header p { margin: 0; opacity: 0.95; }
+    .content { padding: 32px; }
+    .section { margin-bottom: 24px; }
+    .section h2 {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 6px;
+    }
+    .row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .item { margin-bottom: 12px; }
+    .item strong { display: block; margin-bottom: 4px; }
+    .muted { color: var(--muted); }
+    ul { margin: 6px 0 0 18px; }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      background: #f3e8ff;
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 4px 8px 4px 0;
+    }
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; border: 0; margin: 0; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <h1>Chaitanya Deshpande</h1>
+      <p>Laravel & PHP Backend Developer | 4+ Years Experience | REST APIs | Payment Gateway Integrations</p>
+    </div>
+    <div class="content">
+      <div class="section">
+        <h2>Professional Summary</h2>
+        <p>Backend-focused developer with 4+ years of experience delivering secure, scalable web applications for fintech and banking products. Skilled in Laravel, CodeIgniter, REST APIs, database optimization, and payment integrations with a focus on clean architecture and reliable delivery.</p>
+      </div>
+
+      <div class="section">
+        <h2>Core Skills</h2>
+        <div>
+          <span class="pill">Laravel</span>
+          <span class="pill">PHP</span>
+          <span class="pill">CodeIgniter</span>
+          <span class="pill">REST APIs</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">JWT Auth</span>
+          <span class="pill">Payment Gateways</span>
+          <span class="pill">Fintech</span>
+          <span class="pill">Banking</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Experience</h2>
+        <div class="item">
+          <div class="row"><strong>Backend Developer, Paradiso Software Pvt. Ltd</strong><span class="muted">Apr 2025 – Present</span></div>
+          <ul>
+            <li>Building the Course Studio platform with scalable REST APIs and backend services.</li>
+            <li>Supporting content-driven workflows and modern product architecture.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="row"><strong>Software Developer, Loantap Financial Technologies</strong><span class="muted">Oct 2024 – Dec 2024</span></div>
+          <ul>
+            <li>Contributed to a loan origination and management platform with secure backend modules.</li>
+            <li>Improved workflow reliability for lending operations and API-driven services.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="row"><strong>Fullstack Developer, Paymint Fintech Private Limited</strong><span class="muted">Oct 2021 – Sep 2024</span></div>
+          <ul>
+            <li>Built fintech applications including a Prepaid Cards Management System and Core Banking System modules.</li>
+            <li>Developed payment-enabled workflows and REST APIs using Laravel, CodeIgniter, PostgreSQL, and MySQL.</li>
+            <li>Improved processing efficiency by 40% in loan-related workflow operations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Key Projects</h2>
+        <div class="item">
+          <strong>Loan Management System</strong>
+          <ul>
+            <li>Built loan approval workflows, EMI tracking, authentication, and admin dashboards.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <strong>Core Banking System (CBS)</strong>
+          <ul>
+            <li>Developed account lifecycle, transaction, and batch processing modules for financial operations.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <strong>Employee Management System</strong>
+          <ul>
+            <li>Created role-based administration, records management, and reporting workflows.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Education</h2>
+        <div class="item">
+          <div class="row"><strong>M.Sc. Computer Science, Haribhai V. Desai College, Pune</strong><span class="muted">2021 – 2024</span></div>
+        </div>
+        <div class="item">
+          <div class="row"><strong>B.Sc. Computer Science, Haribhai V. Desai College, Pune</strong><span class="muted">2018 – 2021</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
