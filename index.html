@@ -968,8 +968,8 @@
 
     .about-card,
     .service-card,
-    .repo-card,
-    .testimonial-card {
+    .repo-card
+     {
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 12px;
@@ -999,8 +999,7 @@
     }
 
     .service-grid,
-    .repo-grid,
-    .testimonial-grid {
+    .repo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
@@ -1008,14 +1007,12 @@
     }
 
     .service-card h3,
-    .repo-card h3,
-    .testimonial-card h4 {
+    .repo-card h3 {
       margin-bottom: 8px;
     }
 
     .service-card p,
-    .repo-card p,
-    .testimonial-card p {
+    .repo-card p {
       color: var(--text-secondary);
       line-height: 1.7;
       margin-bottom: 0;
@@ -1316,19 +1313,6 @@
       <div class="repo-card">
         <h3>Suggested repositories</h3>
         <p>Laravel REST API • JWT Authentication • Payment Gateway Integration • Blog CMS • Node.js API</p>
-      </div>
-    </div>
-
-    <div class="testimonial-grid" style="margin-top: 30px;">
-      <div class="testimonial-card">
-        <p>“A strong backend developer who understands business workflows, APIs, and the need for reliable delivery.”</p>
-        <h4>Testimonial placeholder</h4>
-        <p>Replace with a real quote from a colleague or client.</p>
-      </div>
-      <div class="testimonial-card">
-        <p>“Great at translating product requirements into clean APIs, payment flows, and solid database design.”</p>
-        <h4>Testimonial placeholder</h4>
-        <p>Replace with a real quote from a manager or client.</p>
       </div>
     </div>
   </section>
