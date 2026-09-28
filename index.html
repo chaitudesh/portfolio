@@ -1,1422 +1,304 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chaitanya Deshpande | Fullstack Developer</title>
-
-  <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Caveat:wght@700&display=swap"
-    rel="stylesheet">
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-
-  <!-- Static Images -->
-
-  <style>
-    :root {
-      --bg-color: #FFFFFF;
-      --text-color: #000000;
-      --text-secondary: #868E96;
-      --text-tertiary: #A6A6A6;
-      --accent-color: #55198B;
-      --card-bg: #FFFFFF;
-      --header-bg: #FFFFFF;
-      --shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2);
-      --border-color: rgba(0, 0, 0, 0.1);
-      --btn-text: #55198B;
-      --btn-bg: transparent;
-      --btn-hover-bg: #55198B;
-      --btn-hover-text: #FFFFFF;
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #171C28;
-      --text-color: #FFFFFF;
-      --text-secondary: #868E96;
-      --text-tertiary: #A6A6A6;
-      --accent-color: #55198B;
-      --card-bg: #1F263B;
-      --header-bg: #171C28;
-      --shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
-      --border-color: rgba(255, 255, 255, 0.1);
-      --btn-text: #FFFFFF;
-      --btn-bg: transparent;
-      --btn-hover-bg: #FFFFFF;
-      --btn-hover-text: #171C28;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      overflow-x: hidden;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-top: 0;
-    }
-
-    p {
-      margin-top: 0;
-    }
-
-    .subTitle {
-      color: var(--text-secondary);
-      font-size: 30px;
-      line-height: 40px;
-    }
-
-    /* --- HEADER --- */
-    .header {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-    }
-
-    .logo {
-      font-family: 'Caveat', cursive;
-      font-size: 40px;
-      text-decoration: none;
-      color: var(--text-color);
-    }
-
-    .logo .grey-color {
-      color: var(--text-secondary);
-    }
-
-    .logo-name {
-      font-weight: 700;
-    }
-
-    .logo:hover .logo-name {
-      color: var(--accent-color);
-    }
-
-    .menu {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .menu li a {
-      text-decoration: none;
-      color: var(--text-color);
-      font-size: 18px;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .menu li a:hover {
-      background-color: rgba(134, 142, 150, 0.2);
-      border-radius: 10px;
-      padding: 10px 20px;
-      margin: -10px -20px;
-    }
-
-    .theme-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--text-color);
-      font-size: 20px;
-      padding: 5px;
-    }
-
-    /* Mobile Menu Toggle */
-    .menu-btn {
-      display: none;
-    }
-
-    .menu-icon {
-      display: none;
-    }
-
-    /* --- BUTTONS --- */
-    .main-button {
-      display: inline-block;
-      padding: 15px 30px;
-      font-size: 16px;
-      font-weight: 700;
-      text-transform: uppercase;
-      border: 1px solid var(--accent-color);
-      color: var(--btn-text);
-      background-color: var(--btn-bg);
-      border-radius: 5px;
-      text-decoration: none;
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
-    }
-
-    .main-button:hover {
-      background-color: var(--btn-hover-bg);
-      color: var(--btn-hover-text);
-      box-shadow: 0 5px 15px rgba(85, 25, 139, 0.4);
-    }
-
-    /* --- LOTTIE --- */
-    .lottie-container {
-      width: 100%;
-      max-width: 600px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* --- GREETING --- */
-    .greeting-main {
-      display: flex;
-      align-items: center;
-      padding: 50px 5%;
-      max-width: 1200px;
-      margin: 0 auto;
-      gap: 50px;
-      min-height: 80vh;
-    }
-
-    .greeting-text-div {
-      flex: 1;
-    }
-
-    .greeting-image-div {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .greeting-text {
-      font-size: 70px;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .greeting-text-p {
-      font-size: 22px;
-      line-height: 35px;
-      margin-bottom: 30px;
-    }
-
-    .wave-emoji {
-      display: inline-block;
-      animation: wave 2.5s infinite;
-      transform-origin: 70% 70%;
-    }
-
-    @keyframes wave {
-      0% {
-        transform: rotate(0.0deg)
-      }
-
-      10% {
-        transform: rotate(14.0deg)
-      }
-
-      20% {
-        transform: rotate(-8.0deg)
-      }
-
-      30% {
-        transform: rotate(14.0deg)
-      }
-
-      40% {
-        transform: rotate(-4.0deg)
-      }
-
-      50% {
-        transform: rotate(10.0deg)
-      }
-
-      60% {
-        transform: rotate(0.0deg)
-      }
-
-      100% {
-        transform: rotate(0.0deg)
-      }
-    }
-
-    .social-media-div {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 40px;
-    }
-
-    .icon-button {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 22px;
-      color: #fff;
-      transition: 0.3s;
-    }
-
-    .github {
-      background-color: #333;
-    }
-
-    .linkedin {
-      background-color: #0e76a8;
-    }
-
-    .google {
-      background-color: #ea4335;
-    }
-
-    .icon-button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-    }
-
-    .button-greeting-div {
-      display: flex;
-      gap: 20px;
-    }
-
-    /* --- SKILLS --- */
-    .skills-main-div {
-      display: flex;
-      align-items: center;
-      padding: 50px 5%;
-      max-width: 1200px;
-      margin: 0 auto;
-      gap: 50px;
-      min-height: 80vh;
-    }
-
-    .skills-image-div {
-      flex: 1;
-    }
-
-    .skills-text-div {
-      flex: 1;
-    }
-
-    .skills-heading-text {
-      font-size: 50px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .software-skills-main-div ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      list-style: none;
-      padding: 0;
-      margin-bottom: 30px;
-    }
-
-    .software-skill-inline {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .software-skill-inline i {
-      font-size: 50px;
-      color: var(--text-secondary);
-      transition: 0.3s;
-    }
-
-    .software-skill-inline i:hover {
-      color: var(--accent-color);
-      transform: scale(1.1);
-    }
-
-    .software-skill-inline p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-top: 10px;
-      font-weight: 500;
-    }
-
-    .skills-text-subtitle {
-      font-size: 20px;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    /* --- PROFICIENCY --- */
-    .proficiency-main {
-      display: flex;
-      align-items: center;
-      padding: 50px 5%;
-      max-width: 1200px;
-      margin: 0 auto;
-      gap: 50px;
-      min-height: 80vh;
-    }
-
-    .skill-bars {
-      margin-top: 40px;
-      width: 100%;
-    }
-
-    .skill-bar {
-      margin-bottom: 25px;
-    }
-
-    .skill-name {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-
-    .skill-progress-bg {
-      background-color: rgba(134, 142, 150, 0.2);
-      height: 20px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .skill-progress {
-      background-color: var(--accent-color);
-      height: 100%;
-      border-radius: 10px;
-    }
-
-    /* --- EXPERIENCE --- */
-    .skills-heading {
-      font-size: 50px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
-    .experience-cards-div {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 5%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 50px 30px;
-    }
-
-    .experience-card {
-      position: relative;
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 60px 30px 30px;
-      transition: 0.3s;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .experience-card:hover {
-      box-shadow: var(--shadow);
-    }
-
-    .experience-card-logo {
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background-color: var(--bg-color);
-      border: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .experience-card-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .experience-card-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .experience-card-company {
-      font-size: 18px;
-      color: var(--text-secondary);
-      margin-bottom: 15px;
-      font-weight: 500;
-    }
-
-    .experience-card-duration {
-      font-size: 14px;
-      color: var(--text-tertiary);
-      margin-bottom: 20px;
-    }
-
-    .experience-card-description {
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text-color);
-      text-align: left;
-    }
-
-    /* --- PROJECTS --- */
-    .projects-cards-div {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 5%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 5px;
-      padding: 25px;
-      transition: 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project-card:hover {
-      box-shadow: var(--shadow);
-    }
-
-    .project-card-top {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    .project-icon {
-      font-size: 24px;
-      color: var(--text-color);
-    }
-
-    .project-name {
-      font-size: 20px;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .project-description {
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-
-    .project-card-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .project-stat-container {
-      display: flex;
-      gap: 15px;
-    }
-
-    .project-stat {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    .project-stat p {
-      margin: 0;
-    }
-
-    .language-color {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
-    .github-repo-btn {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    /* --- EDUCATION --- */
-    .education-cards-div {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 5%;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .education-card {
-      display: flex;
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      transition: 0.3s;
-    }
-
-    .education-card:hover {
-      box-shadow: var(--shadow);
-    }
-
-    .education-card-left {
-      width: 180px;
-      background-color: rgba(134, 142, 150, 0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .education-card-left img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 3px solid var(--bg-color);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .education-card-right {
-      padding: 30px;
-      flex: 1;
-    }
-
-    .education-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 15px;
-    }
-
-    .education-card-college {
-      font-size: 22px;
-      font-weight: 700;
-      margin: 0 0 5px 0;
-      color: var(--text-color);
-    }
-
-    .education-card-degree {
-      font-size: 18px;
-      font-weight: 500;
-      margin: 0;
-      color: var(--text-secondary);
-    }
-
-    .education-card-duration {
-      font-size: 16px;
-      color: var(--text-color);
-      background-color: rgba(134, 142, 150, 0.15);
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-weight: 500;
-    }
-
-    .education-card-desc {
-      font-size: 16px;
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-
-    /* --- CONTACT --- */
-    .contact-main {
-      display: flex;
-      align-items: center;
-      padding: 80px 5%;
-      max-width: 1200px;
-      margin: 0 auto;
-      gap: 50px;
-    }
-
-    .contact-image-div {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .contact-image-div img {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 10px solid rgba(134, 142, 150, 0.1);
-    }
-
-    .contact-text-div {
-      flex: 1.5;
-    }
-
-    .contact-heading {
-      font-size: 50px;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    .contact-subtitle {
-      font-size: 22px;
-      line-height: 1.5;
-      margin-bottom: 25px;
-    }
-
-    .contact-detail {
-      font-size: 18px;
-      color: var(--text-secondary);
-      margin-bottom: 15px;
-    }
-
-    /* --- FOOTER --- */
-    .footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 18px;
-    }
-
-    .heart {
-      color: red;
-    }
-
-    /* --- RESPONSIVE --- */
-    @media (max-width: 768px) {
-
-      .greeting-main,
-      .skills-main-div,
-      .proficiency-main,
-      .contact-main {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .greeting-text {
-        font-size: 45px;
-      }
-
-      .greeting-text-p {
-        font-size: 18px;
-      }
-
-      .button-greeting-div,
-      .social-media-div,
-      .software-skills-main-div ul {
-        justify-content: center;
-      }
-
-      .education-card {
-        flex-direction: column;
-      }
-
-      .education-card-left {
-        width: 100%;
-        padding: 30px 0;
-      }
-
-      .education-card-header {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .education-card-college-div,
-      .education-card-duration-div {
-        text-align: center;
-        width: 100%;
-      }
-
-      .education-card-right {
-        text-align: center;
-      }
-
-      .contact-text-div .social-media-div {
-        justify-content: center !important;
-      }
-
-      /* Mobile Nav */
-      .menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        background-color: var(--header-bg);
-        padding: 20px 0;
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        z-index: 100;
-      }
-
-      .menu-icon {
-        display: block;
-        cursor: pointer;
-        padding: 10px;
-      }
-
-      .navicon {
-        background: var(--text-color);
-        display: block;
-        height: 2px;
-        position: relative;
-        width: 24px;
-      }
-
-      .navicon:before,
-      .navicon:after {
-        background: var(--text-color);
-        content: '';
-        display: block;
-        height: 100%;
-        position: absolute;
-        transition: all .2s ease-out;
-        width: 100%;
-      }
-
-      .navicon:before {
-        top: 7px;
-      }
-
-      .navicon:after {
-        top: -7px;
-      }
-
-      .menu-btn:checked~.menu {
-        display: flex;
-      }
-
-      .menu-btn:checked~.menu-icon .navicon {
-        background: transparent;
-      }
-
-      .menu-btn:checked~.menu-icon .navicon:before {
-        transform: rotate(-45deg);
-        top: 0;
-      }
-
-      .menu-btn:checked~.menu-icon .navicon:after {
-        transform: rotate(45deg);
-        top: 0;
-      }
-    }
-
-    /* --- PREMIUM UI UPGRADES --- */
-
-    /* Background gradients & patterns */
-    body {
-      background-image: radial-gradient(circle at 15% 50%, rgba(85, 25, 139, 0.08), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(85, 25, 139, 0.08), transparent 25%);
-      background-attachment: fixed;
-    }
-
-    [data-theme="dark"] body {
-      background-image: radial-gradient(circle at 15% 50%, rgba(85, 25, 139, 0.15), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(85, 25, 139, 0.15), transparent 25%);
-    }
-
-    /* Gradient Text for Main Headings */
-    .greeting-text,
-    .skills-heading-text,
-    .skills-heading {
-      background: linear-gradient(90deg, var(--text-color) 0%, var(--accent-color) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Glassmorphism Cards */
-    .experience-card,
-    .project-card,
-    .education-card {
-      background: rgba(255, 255, 255, 0.03) !important;
-      backdrop-filter: blur(10px) !important;
-      -webkit-backdrop-filter: blur(10px) !important;
-      border: 1px solid rgba(0, 0, 0, 0.05) !important;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05) !important;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    }
-
-    [data-theme="dark"] .experience-card,
-    [data-theme="dark"] .project-card,
-    [data-theme="dark"] .education-card {
-      background: rgba(31, 38, 59, 0.4) !important;
-      border: 1px solid rgba(255, 255, 255, 0.05) !important;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
-    }
-
-    /* Hover Effects for Cards */
-    .experience-card:hover,
-    .project-card:hover,
-    .education-card:hover {
-      transform: translateY(-10px) scale(1.02) !important;
-      box-shadow: 0 15px 40px 0 rgba(85, 25, 139, 0.15) !important;
-      border-color: rgba(85, 25, 139, 0.3) !important;
-    }
-
-    [data-theme="dark"] .experience-card:hover,
-    [data-theme="dark"] .project-card:hover,
-    [data-theme="dark"] .education-card:hover {
-      box-shadow: 0 15px 40px 0 rgba(85, 25, 139, 0.4) !important;
-      border-color: rgba(85, 25, 139, 0.5) !important;
-    }
-
-    /* Floating Animation for Images */
-    .greeting-image-div img,
-    .skills-image-div img,
-    .proficiency-image-div img,
-    .contact-image-div img {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-20px);
-      }
-
-      100% {
-        transform: translateY(0px);
-      }
-    }
-
-    /* Tech Icons Glow on Hover */
-    .software-skill-inline i {
-      transition: all 0.3s ease;
-    }
-
-    .software-skill-inline i:hover {
-      color: var(--accent-color) !important;
-      transform: scale(1.2) translateY(-5px);
-      text-shadow: 0 10px 20px rgba(85, 25, 139, 0.5);
-    }
-
-    /* Button Glow Effect */
-    .main-button {
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .main-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: all 0.5s ease;
-      z-index: -1;
-    }
-
-    .main-button:hover::before {
-      left: 100%;
-    }
-
-    .trust-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .trust-stat {
-      background: rgba(85, 25, 139, 0.08);
-      border: 1px solid var(--border-color);
-      border-radius: 999px;
-      padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-color);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .about-card,
-    .service-card,
-    .repo-card
-     {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .about-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .about-list i {
-      color: var(--accent-color);
-      margin-top: 4px;
-    }
-
-    .service-grid,
-    .repo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .service-card h3,
-    .repo-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .service-card p,
-    .repo-card p {
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 0;
-    }
-
-    .repo-card a {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      margin-top: 12px;
-    }
-
-    .project-highlight-list {
-      padding-left: 18px;
-      margin: 12px 0 0;
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-
-    .project-highlight-list li {
-      margin-bottom: 6px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- HEADER -->
-  <header class="header">
-    <a href="/" class="logo">
-      <span class="grey-color">&lt;</span>
-      <span class="logo-name">Chaitanya</span>
-      <span class="grey-color">/&gt;</span>
-    </a>
-    <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-    <ul class="menu">
-      <li><a href="#skills" onclick="closeMenu()">About</a></li>
-      <li><a href="#services" onclick="closeMenu()">Services</a></li>
-      <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
-      <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
-      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-      <li>
-        <button class="theme-toggle" id="theme-toggle">
-          <i class="fas fa-sun"></i>
-        </button>
-      </li>
-    </ul>
-  </header>
-
-  <!-- GREETING -->
-  <section class="greeting-main" id="greeting">
-    <div class="greeting-text-div">
-      <h1 class="greeting-text">Laravel & PHP Backend Developer</h1>
-      <p class="greeting-text-p subTitle">4+ Years of Experience | REST APIs | Payment Gateway Integration | FinTech & Banking Applications</p>
-      <p class="greeting-text-p" style="font-size: 18px; line-height: 30px;">Need a Laravel developer? I help build scalable web applications, secure APIs, payment integrations, and admin dashboards for fintech and banking products.</p>
-      <div class="social-media-div">
-        <a href="https://github.com/chaitudesh" class="icon-button github" target="_blank"><i
-            class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/chaitanya-deshpande-77bb50218/" class="icon-button linkedin" target="_blank"><i
-            class="fab fa-linkedin-in"></i></a>
-        <a href="mailto:chaitanyadesh2001@gmail.com" class="icon-button google" target="_blank"><i
-            class="fas fa-envelope"></i></a>
-      </div>
-      <div class="button-greeting-div">
-        <a class="main-button" href="mailto:chaitanyadesh2001@gmail.com?subject=Project%20Inquiry">Hire Me</a>
-        <a class="main-button" href="#projects">View Projects</a>
-        <a class="main-button" href="./resume.html" download="Chaitanya-Deshpande-Resume.html">Download Resume</a>
-      </div>
-      <div class="trust-stats">
-        <div class="trust-stat">✅ 4+ Years Experience</div>
-        <div class="trust-stat">✅ 20+ Projects Delivered</div>
-        <div class="trust-stat">✅ REST APIs</div>
-        <div class="trust-stat">✅ Payment Gateway Integrations</div>
-        <div class="trust-stat">✅ Banking & FinTech Domain</div>
-      </div>
-    </div>
-    <div class="greeting-image-div lottie-container">
-      <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/manOnTable.svg"
-        alt="Developer Activity" style="width: 100%; height: auto;">
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="skills-main-div" id="skills">
-    <div class="skills-image-div lottie-container">
-      <img
-        src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/developerActivity.svg"
-        alt="Backend Developer" style="width: 100%; height: auto;">
-    </div>
-    <div class="skills-text-div">
-      <h1 class="skills-heading-text">About Me</h1>
-      <p class="subTitle skills-text-subtitle">I’m a backend-focused developer with 4+ years of experience building secure, high-performance systems for fintech and banking products.</p>
-      <div class="about-grid">
-        <div class="about-card">
-          <h3>What I bring</h3>
-          <ul class="about-list">
-            <li><i class="fas fa-check-circle"></i><span>Laravel & CodeIgniter development for scalable web applications.</span></li>
-            <li><i class="fas fa-check-circle"></i><span>REST API design and integration with payment gateways such as Stripe and Razorpay.</span></li>
-            <li><i class="fas fa-check-circle"></i><span>JWT authentication, MySQL/PostgreSQL database design, and performance tuning.</span></li>
-            <li><i class="fas fa-check-circle"></i><span>Experience in loan systems, core banking modules, employee management, and admin platforms.</span></li>
-          </ul>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chaitanya Deshpande | Laravel & PHP Backend Developer</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Chaitanya Deshpande — Backend Developer. Portfolio showcasing projects, skills and contact." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="site-bg">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#">Chaitanya Deshpande</a>
+        <nav class="nav" id="nav">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="socials">
+          <a href="https://github.com/chaitudesh" aria-label="GitHub" title="GitHub" class="social-link social-link-icon" target="_blank">
+            <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="" aria-hidden="true">
+            <span class="sr-only">GitHub</span>
+          </a>
+          <a href="https://linkedin.com/in/chaitanya-deshpande-77bb50218/" aria-label="LinkedIn" title="LinkedIn" class="social-link social-link-icon" target="_blank">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img">
+              <rect x="2" y="2" width="20" height="20" rx="5" fill="#0A66C2"></rect>
+              <path d="M7.2 9.1H9.9V17H7.2V9.1Zm1.35-3.6c.84 0 1.48.62 1.48 1.4 0 .81-.64 1.43-1.5 1.43-.83 0-1.47-.62-1.47-1.43 0-.78.64-1.4 1.49-1.4ZM11.9 9.1h2.6v1.08h.04c.36-.64 1.25-1.3 2.57-1.3 2.75 0 3.26 1.72 3.26 3.96V17h-2.72v-3.78c0-.9-.02-2.06-1.25-2.06-1.25 0-1.44.98-1.44 2V17H11.9V9.1Z" fill="#fff"></path>
+            </svg>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="mailto:chaitanyadesh2001@gmail.com" aria-label="Email" title="Email" class="social-link social-link-icon">
+            <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="" aria-hidden="true">
+            <span class="sr-only">Email</span>
+          </a>
         </div>
-        <div class="about-card">
-          <h3>Core strengths</h3>
-          <ul class="about-list">
-            <li><i class="fas fa-code"></i><span>Clean, maintainable backend architecture.</span></li>
-            <li><i class="fas fa-bolt"></i><span>Fast performance optimization for data-heavy workflows.</span></li>
-            <li><i class="fas fa-shield-alt"></i><span>Secure integrations for financial products and sensitive operations.</span></li>
-            <li><i class="fas fa-comments"></i><span>Clear communication and reliable delivery.</span></li>
-          </ul>
-        </div>
+        <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">☰</button>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- SERVICES -->
-  <section id="services" style="padding: 60px 5% 80px; max-width: 1200px; margin: 0 auto;">
-    <h1 class="skills-heading">Services</h1>
-    <div class="service-grid">
-      <div class="service-card">
-        <h3>Laravel Development</h3>
-        <p>Scalable backend modules, feature development, and maintainable application architecture.</p>
-      </div>
-      <div class="service-card">
-        <h3>REST API Development</h3>
-        <p>Secure and efficient APIs for web and mobile applications with clean documentation.</p>
-      </div>
-      <div class="service-card">
-        <h3>Third-party Integrations</h3>
-        <p>Stripe, Razorpay, and other payment or business-tool integrations tailored to your product.</p>
-      </div>
-      <div class="service-card">
-        <h3>Database Optimization</h3>
-        <p>MySQL and PostgreSQL tuning, query optimization, and schema improvements for performance.</p>
-      </div>
-      <div class="service-card">
-        <h3>Admin Panel Development</h3>
-        <p>Role-based dashboards and internal tools for operations, approvals, and reporting.</p>
-      </div>
-      <div class="service-card">
-        <h3>Legacy CodeIgniter Maintenance</h3>
-        <p>Support, bug fixing, upgrades, and long-term maintenance for older PHP systems.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESUME SNAPSHOT -->
-  <section id="resume" style="padding: 20px 5% 80px; max-width: 1200px; margin: 0 auto;">
-    <div class="about-card" style="padding: 32px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 18px;">
-        <div>
-          <h2 class="skills-heading-text" style="font-size: 34px; margin-bottom: 8px;">Resume Highlights</h2>
-          <p class="subTitle skills-text-subtitle" style="font-size: 18px; line-height: 1.6; margin-bottom: 0;">Focused on measurable impact, financial domain experience, and backend systems that power real products.</p>
-        </div>
-        <a class="main-button" href="./resume.html" download="Chaitanya-Deshpande-Resume.html">Download Resume</a>
-      </div>
-      <ul class="about-list">
-        <li><i class="fas fa-check-circle"></i><span>4+ years of experience building secure Laravel and PHP backend systems for fast-moving products.</span></li>
-        <li><i class="fas fa-check-circle"></i><span>Delivered 20+ projects with a strong focus on REST APIs, payment gateway integrations, and admin dashboards.</span></li>
-        <li><i class="fas fa-check-circle"></i><span>Worked on Loan Management System, Core Banking System (CBS), Employee Management System, and fintech payment workflows.</span></li>
-        <li><i class="fas fa-check-circle"></i><span>Improved processing efficiency by 40% in a loan platform workflow and strengthened reliability for critical banking operations.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- WHY HIRE ME -->
-  <section class="proficiency-main" id="why-hire-me">
-    <div class="proficiency-text-div" style="flex:1;">
-      <h1 class="skills-heading-text">Why Hire Me?</h1>
-      <div class="about-card">
-        <ul class="about-list">
-          <li><i class="fas fa-check-circle"></i><span>Clean, maintainable Laravel and PHP code built for long-term scalability.</span></li>
-          <li><i class="fas fa-check-circle"></i><span>Strong database optimization and API-first development for reliable fintech and banking platforms.</span></li>
-          <li><i class="fas fa-check-circle"></i><span>Hands-on experience with Loan Management Systems, Core Banking workflows, Employee Management modules, and payment gateway integrations.</span></li>
-          <li><i class="fas fa-check-circle"></i><span>Clear communication, on-time delivery, and dependable post-delivery support.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="proficiency-image-div lottie-container" style="flex:1;">
-      <img src="https://raw.githubusercontent.com/saadpasta/developerFolio/master/src/assets/images/skill.svg"
-        alt="Why Hire Me" style="width: 100%; height: auto;">
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" style="padding: 100px 0 50px;">
-    <h1 class="skills-heading">Relevant Experience</h1>
-    <div class="experience-cards-div">
-      <div class="experience-card">
-        <div class="experience-card-logo">
-          <img src="https://ui-avatars.com/api/?name=Paradiso+Software&background=0D8ABC&color=fff&bold=true"
-            alt="Paradiso">
-        </div>
-        <div class="experience-card-body">
-          <h3 class="experience-card-title">Backend Developer</h3>
-          <h4 class="experience-card-company">Paradiso Software Pvt. Ltd</h4>
-          <div class="experience-card-duration">Apr 2025 – Present</div>
-          <p class="experience-card-description">
-            Building the Course Studio platform with REST APIs, content workflows, and scalable backend services for a modern eLearning product.
-          </p>
-        </div>
-      </div>
-
-      <div class="experience-card">
-        <div class="experience-card-logo">
-          <img src="https://ui-avatars.com/api/?name=Loantap&background=FF6B6B&color=fff&bold=true" alt="Loantap">
-        </div>
-        <div class="experience-card-body">
-          <h3 class="experience-card-title">Software Developer</h3>
-          <h4 class="experience-card-company">Loantap Financial Technologies</h4>
-          <div class="experience-card-duration">Oct 2024 – Dec 2024</div>
-          <p class="experience-card-description">
-            Contributed to a loan origination and management platform, building secure API flows and backend modules for a fast-moving lending product.
-          </p>
-        </div>
-      </div>
-
-      <div class="experience-card">
-        <div class="experience-card-logo">
-          <img src="https://ui-avatars.com/api/?name=Paymint&background=4ECDC4&color=fff&bold=true" alt="Paymint">
-        </div>
-        <div class="experience-card-body">
-          <h3 class="experience-card-title">Fullstack Developer</h3>
-          <h4 class="experience-card-company">Paymint Fintech Private Limited</h4>
-          <div class="experience-card-duration">Oct 2021 – Sep 2024</div>
-          <p class="experience-card-description">
-            Built fintech applications including a Prepaid Cards Management System, Core Banking System modules, and payment-enabled workflows using CodeIgniter, Laravel, PostgreSQL, and REST APIs.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" style="padding: 100px 0 50px;">
-    <h1 class="skills-heading">Featured Projects</h1>
-    <div class="projects-cards-div">
-      <div class="project-card">
-        <div class="project-card-top">
-          <i class="fas fa-university project-icon"></i>
-          <h2 class="project-name">Loan Management System</h2>
-        </div>
-        <p class="project-description"><strong>Role:</strong> Backend Developer</p>
-        <p class="project-description"><strong>Technologies:</strong> Laravel, MySQL, REST API</p>
-        <ul class="project-highlight-list">
-          <li>Loan approval workflow</li>
-          <li>EMI calculation and status tracking</li>
-          <li>User authentication and admin dashboard</li>
-          <li>Payment integration support</li>
-        </ul>
-        <p class="project-description" style="margin-top: 12px;"><strong>Result:</strong> Reduced processing time by 40%.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-card-top">
-          <i class="fas fa-piggy-bank project-icon"></i>
-          <h2 class="project-name">Core Banking System</h2>
-        </div>
-        <p class="project-description"><strong>Role:</strong> Backend Developer</p>
-        <p class="project-description"><strong>Technologies:</strong> CodeIgniter, PostgreSQL, REST API</p>
-        <ul class="project-highlight-list">
-          <li>Account lifecycle management</li>
-          <li>Interest and settlement batch processing</li>
-          <li>Secure financial transaction workflows</li>
-          <li>High-volume data handling</li>
-        </ul>
-        <p class="project-description" style="margin-top: 12px;"><strong>Result:</strong> Improved reliability for critical banking operations.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-card-top">
-          <i class="fas fa-users project-icon"></i>
-          <h2 class="project-name">Employee Management System</h2>
-        </div>
-        <p class="project-description"><strong>Role:</strong> Fullstack Developer</p>
-        <p class="project-description"><strong>Technologies:</strong> Laravel, MySQL, JavaScript</p>
-        <ul class="project-highlight-list">
-          <li>Employee onboarding and records</li>
-          <li>Role-based administration</li>
-          <li>Reporting and workflow tracking</li>
-          <li>Dashboard-driven operations</li>
-        </ul>
-        <p class="project-description" style="margin-top: 12px;"><strong>Result:</strong> Streamlined daily administration and reporting.</p>
-        <a href="https://emsfrontend-npltd4lyl-chaitanyas-projects-f7347c9a.vercel.app/" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 12px;"><i class="fas fa-external-link-alt" style="margin-right: 5px;"></i>Live Demo</a>
-      </div>
-    </div>
-
-    <div class="repo-grid" style="margin-top: 40px;">
-      <div class="repo-card">
-        <h3>GitHub Repositories</h3>
-        <p>Explore backend-focused work, authentication modules, API integrations, and small web apps.</p>
-        <a href="https://github.com/chaitudesh" target="_blank">View GitHub Profile</a>
-      </div>
-      <div class="repo-card">
-        <h3>Suggested repositories</h3>
-        <p>Laravel REST API • JWT Authentication • Payment Gateway Integration • Blog CMS • Node.js API</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" style="padding: 100px 0 50px;">
-    <h1 class="skills-heading">Education</h1>
-    <div class="education-cards-div">
-      <div class="education-card">
-        <div class="education-card-left">
-          <img src="https://ui-avatars.com/api/?name=HVD&background=55198B&color=fff&bold=true" alt="College">
-        </div>
-        <div class="education-card-right">
-          <div class="education-card-header">
-            <div class="education-card-college-div">
-              <h3 class="education-card-college">Haribhai V. Desai College, Pune</h3>
-              <h4 class="education-card-degree">Master of Science in Computer Science</h4>
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <h1>Hi, I'm Chaitanya Deshpande</h1>
+            <p class="lead">Laravel & PHP Backend Developer. 4+ Years of Experience building secure, high-performance systems for fintech and banking products.</p>
+              <p class="hero-sub">REST APIs — Payment Gateway Integration — FinTech & Banking Applications</p>
+              <div class="hero-badges">
+                <span class="badge">Laravel</span>
+                <span class="badge">PHP</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">PostgreSQL</span>
+                <span class="badge">CodeIgniter</span>
+              </div>
+              <div class="hero-actions">
+                <a class="btn primary" href="#projects">View Projects</a>
+                <a class="btn ghost" href="mailto:chaitanyadesh2001@gmail.com?subject=Project%20Inquiry">Hire Me</a>
+              </div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-image-wrap">
+              <img id="heroImageBack" src="profile.jpg" alt="Chaitanya Deshpande" class="hero-image hero-image-back" />
+              <img id="heroImageFront" src="profile.jpg" alt="Chaitanya Deshpande" class="hero-image hero-image-front" style="display:none;" />
             </div>
-            <div class="education-card-duration-div">
-              <div class="education-card-duration">2021 - 2024</div>
+            <div class="hero-tech-orbit" aria-label="Technologies">
+              <span class="hero-tech"><img src="https://cdn.simpleicons.org/laravel/FF2D20" alt="">Laravel</span>
+              <span class="hero-tech"><img src="https://cdn.simpleicons.org/php/777BB4" alt="">PHP</span>
+              <span class="hero-tech"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="">MySQL</span>
+              <span class="hero-tech"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="">PostgreSQL</span>
+              <span class="hero-tech"><img src="https://cdn.simpleicons.org/stripe/008CDD" alt="">Stripe</span>
+              <span class="hero-tech"><img src="https://cdn.simpleicons.org/codeigniter/EF4223" alt="">CodeIgniter</span>
             </div>
           </div>
-          <p class="education-card-desc">Graduated with a CGPA of 7.20. Specialized in Advanced Software Engineering,
-            Database Systems, and Web Technologies.</p>
         </div>
-      </div>
+      </section>
 
-      <div class="education-card">
-        <div class="education-card-left">
-          <img src="https://ui-avatars.com/api/?name=HVD&background=55198B&color=fff&bold=true" alt="College">
-        </div>
-        <div class="education-card-right">
-          <div class="education-card-header">
-            <div class="education-card-college-div">
-              <h3 class="education-card-college">Haribhai V. Desai College, Pune</h3>
-              <h4 class="education-card-degree">Bachelor of Science in Computer Science</h4>
+      <section id="about" class="section">
+        <div class="container">
+          <h2>About Me</h2>
+          <p>I’m a backend-focused developer with 4+ years of experience building secure, high-performance systems for fintech and banking products. I specialize in Laravel & CodeIgniter development, REST API design, JWT authentication, and MySQL/PostgreSQL optimization.</p>
+          <div class="community-card">
+            <div>
+              <p class="community-kicker">Core Strengths</p>
+              <h3>Clean, maintainable backend architecture.</h3>
+              <p class="muted">Fast performance optimization for data-heavy workflows and secure integrations for financial products and sensitive operations.</p>
             </div>
-            <div class="education-card-duration-div">
-              <div class="education-card-duration">2018 - 2021</div>
+            <a class="btn primary community-link" href="./resume.html" download="Chaitanya-Deshpande-Resume.html">Download Resume</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="container">
+          <h2>Experience</h2>
+          <div class="grid">
+            <article class="card">
+              <div class="experience-card-logo">
+                <img src="https://ui-avatars.com/api/?name=Paradiso+Software&background=0D8ABC&color=fff&bold=true" alt="Paradiso">
+              </div>
+              <h3>Backend Developer</h3>
+              <p class="muted">Paradiso Software Pvt. Ltd • Apr 2025 - Present</p>
+              <ul>
+                <li>Building the Course Studio platform with REST APIs, content workflows, and scalable backend services for a modern eLearning product.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <div class="experience-card-logo">
+                <img src="https://ui-avatars.com/api/?name=Loantap&background=FF6B6B&color=fff&bold=true" alt="Loantap">
+              </div>
+              <h3>Software Developer</h3>
+              <p class="muted">Loantap Financial Technologies • Oct 2024 - Dec 2024</p>
+              <ul>
+                <li>Contributed to a loan origination and management platform, building secure API flows and backend modules for a fast-moving lending product.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <div class="experience-card-logo">
+                <img src="https://ui-avatars.com/api/?name=Paymint&background=4ECDC4&color=fff&bold=true" alt="Paymint">
+              </div>
+              <h3>Fullstack Developer</h3>
+              <p class="muted">Paymint Fintech Private Limited • Oct 2021 - Sep 2024</p>
+              <ul>
+                <li>Built fintech applications including a Prepaid Cards Management System, Core Banking System modules, and payment-enabled workflows.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects">
+        <div class="container">
+          <h2>Featured Projects</h2>
+          <div class="grid">
+            <article class="card">
+              <div class="project-thumb" style="background-image:linear-gradient(135deg,rgba(96,173,246,0.1),rgba(110,231,183,0.08));">
+                <img class="project-thumb-image" src="https://cdn.simpleicons.org/laravel/FF2D20" alt="Loan System">
+                <div class="project-title">Loan Management System</div>
+              </div>
+              <p>Loan approval workflow, EMI calculation, user authentication and admin dashboard with payment integration support. Reduced processing time by 40%.</p>
+              <p class="muted" style="font-size: 14px; margin-top: 10px;">Laravel, MySQL, REST API</p>
+            </article>
+            
+            <article class="card">
+              <div class="project-thumb" style="background-image:linear-gradient(135deg,rgba(96,173,246,0.08),rgba(110,231,183,0.06));">
+                <img class="project-thumb-image" src="https://cdn.simpleicons.org/postgresql/4169E1" alt="Core Banking">
+                <div class="project-title">Core Banking System</div>
+              </div>
+              <p>Account lifecycle management, interest and settlement batch processing, secure financial transaction workflows. Improved reliability for critical operations.</p>
+              <p class="muted" style="font-size: 14px; margin-top: 10px;">CodeIgniter, PostgreSQL, REST API</p>
+            </article>
+
+            <article class="card">
+              <div class="project-thumb" style="background-image:linear-gradient(135deg,rgba(110,231,183,0.08),rgba(96,173,246,0.06));">
+                <img class="project-thumb-image" src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Employee System">
+                <div class="project-title">Employee Management System</div>
+              </div>
+              <p>Employee onboarding, records, role-based administration, reporting and workflow tracking. Streamlined daily administration and reporting.</p>
+              <p class="muted" style="font-size: 14px; margin-top: 10px;">Laravel, MySQL, JavaScript</p>
+              <a class="link" href="https://emsfrontend-npltd4lyl-chaitanyas-projects-f7347c9a.vercel.app/" target="_blank">Live Demo →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section">
+        <div class="container">
+          <h2>Education</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>M.Sc. in Computer Science</h3>
+              <p class="muted">Haribhai V. Desai College, Pune • 2021 - 2024</p>
+              <p>Graduated with a CGPA of 7.20. Specialized in Advanced Software Engineering, Database Systems, and Web Technologies.</p>
+            </article>
+
+            <article class="card">
+              <h3>B.Sc. in Computer Science</h3>
+              <p class="muted">Haribhai V. Desai College, Pune • 2018 - 2021</p>
+              <p>Graduated with 68%. Built foundational knowledge in Programming, Data Structures, and Database Management.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="container">
+          <h2>Skills</h2>
+          <div class="skills-showcase" aria-label="Skills and tools">
+            
+            <div class="skill-category">
+              <h3 class="skill-category-title">Backend Technologies & Languages</h3>
+              <div class="skill-pills">
+                <div class="skill-pill">
+                  <img src="https://cdn.simpleicons.org/php/777BB4" alt="PHP">
+                  <span>PHP</span>
+                </div>
+                <div class="skill-pill">
+                  <img src="https://cdn.simpleicons.org/laravel/FF2D20" alt="Laravel">
+                  <span>Laravel</span>
+                </div>
+                <div class="skill-pill">
+                  <img src="https://cdn.simpleicons.org/codeigniter/EF4223" alt="CodeIgniter">
+                  <span>CodeIgniter</span>
+                </div>
+                <div class="skill-pill">
+                  <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript">
+                  <span>JavaScript</span>
+                </div>
+                <div class="skill-pill">
+                  <img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js">
+                  <span>Node.js</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3 class="skill-category-title">Databases & Integrations</h3>
+              <div class="skill-pills">
+                <div class="skill-pill">
+                  <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL">
+                  <span>MySQL</span>
+                </div>
+                <div class="skill-pill">
+                  <img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL">
+                  <span>PostgreSQL</span>
+                </div>
+                <div class="skill-pill">
+                  <img src="https://cdn.simpleicons.org/stripe/008CDD" alt="Stripe">
+                  <span>Stripe Gateway</span>
+                </div>
+                <div class="skill-pill">
+                  <img src="https://cdn.simpleicons.org/razorpay/02042B" alt="Razorpay">
+                  <span>Razorpay</span>
+                </div>
+                <div class="skill-pill">
+                  <img src="https://cdn.simpleicons.org/redis/DC382D" alt="Redis">
+                  <span>Redis</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 300px;">
+            <h2>Need a Laravel Developer?</h2>
+            <p style="font-size: 1.1rem; color: var(--muted); margin-bottom: 24px;">I can help build scalable web applications, APIs, payment integrations, and admin dashboards for your business.</p>
+            <div class="hero-actions" style="margin-top: 0;">
+              <a class="btn primary" href="mailto:chaitanyadesh2001@gmail.com">Contact Me</a>
             </div>
           </div>
-          <p class="education-card-desc">Graduated with 68%. Built foundational knowledge in Programming, Data
-            Structures, and Database Management.</p>
+          <div style="flex: 1; min-width: 300px;">
+             <p><strong>Email:</strong> chaitanyadesh2001@gmail.com</p>
+             <p><strong>Location:</strong> Pune, India</p>
+             <div class="socials" style="margin-left:0; margin-top: 16px;">
+               <a href="https://github.com/chaitudesh" aria-label="GitHub" title="GitHub" class="social-link social-link-icon" target="_blank">
+                 <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="" aria-hidden="true">
+               </a>
+               <a href="https://linkedin.com/in/chaitanya-deshpande-77bb50218/" aria-label="LinkedIn" title="LinkedIn" class="social-link social-link-icon" target="_blank">
+                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img">
+                   <rect x="2" y="2" width="20" height="20" rx="5" fill="#0A66C2"></rect>
+                   <path d="M7.2 9.1H9.9V17H7.2V9.1Zm1.35-3.6c.84 0 1.48.62 1.48 1.4 0 .81-.64 1.43-1.5 1.43-.83 0-1.47-.62-1.47-1.43 0-.78.64-1.4 1.49-1.4ZM11.9 9.1h2.6v1.08h.04c.36-.64 1.25-1.3 2.57-1.3 2.75 0 3.26 1.72 3.26 3.96V17h-2.72v-3.78c0-.9-.02-2.06-1.25-2.06-1.25 0-1.44.98-1.44 2V17H11.9V9.1Z" fill="#fff"></path>
+                 </svg>
+               </a>
+             </div>
+          </div>
         </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container" style="text-align: center;">
+        <p class="muted">© 2026 Chaitanya Deshpande — Built with care.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact-main" id="contact">
-    <div class="contact-image-div">
-      <img src="./profile.jpg" alt="Chaitanya Deshpande" class="profile-image">
-    </div>
-    <div class="contact-text-div">
-      <h1 class="contact-heading">Need a Laravel developer?</h1>
-      <p class="contact-subtitle subTitle">I can help build scalable web applications, APIs, payment integrations, and admin dashboards for your business.</p>
-      <p class="contact-detail">Laravel & PHP Backend Developer</p>
-      <p class="contact-detail" style="margin-bottom: 30px;"><i class="fas fa-map-marker-alt"
-          style="margin-right: 10px;"></i> Pune, India</p>
-      <div class="button-greeting-div" style="justify-content: flex-start; flex-wrap: wrap;">
-        <a class="main-button" href="mailto:chaitanyadesh2001@gmail.com?subject=Project%20Inquiry">Hire Me</a>
-        <a class="main-button" href="https://linkedin.com/in/chaitanya-deshpande-77bb50218/" target="_blank">Connect on LinkedIn</a>
-      </div>
-      <div class="social-media-div" style="justify-content: flex-start; margin-top: 25px;">
-        <a href="https://github.com/chaitudesh" class="icon-button github" target="_blank"><i
-            class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/chaitanya-deshpande-77bb50218/" class="icon-button linkedin" target="_blank"><i
-            class="fab fa-linkedin-in"></i></a>
-        <a href="mailto:chaitanyadesh2001@gmail.com" class="icon-button google" target="_blank"><i
-            class="fas fa-envelope"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>Made with <span class="heart">❤️</span> by Chaitanya Deshpande</p>
-  </footer>
-
-
-  <script>
+    </footer>
     
-    // Theme Toggle Logic
-    const toggleButton = document.getElementById('theme-toggle');
-    const root = document.documentElement;
-    const icon = toggleButton.querySelector('i');
-
-    let isDark = true;
-    toggleButton.addEventListener('click', () => {
-      isDark = !isDark;
-      if (isDark) {
-        root.setAttribute('data-theme', 'dark');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      } else {
-        root.removeAttribute('data-theme');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
+    <script>
+      // Menu toggle
+      const menuBtn = document.getElementById('menuToggle');
+      const nav = document.getElementById('nav');
+      if (menuBtn && nav) {
+        menuBtn.addEventListener('click', () => {
+          nav.classList.toggle('show');
+        });
+        
+        nav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            nav.classList.remove('show');
+          });
+        });
       }
-    });
-
-    // Close mobile menu on link click
-    function closeMenu() {
-      document.getElementById('menu-btn').checked = false;
-    }
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
